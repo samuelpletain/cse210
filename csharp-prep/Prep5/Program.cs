@@ -18,14 +18,14 @@ class Program
 
     static string PromptUserName()
     {
-        Console.WriteLine("Please enter your name:");
+        Console.Write("Please enter your name: ");
         string name = Console.ReadLine();
         return name;
     }
 
     static int PromptUserNumber()
     {
-        Console.WriteLine("Please enter your favorite number:");
+        Console.Write("Please enter your favorite number: ");
         int favoriteNumber = int.Parse(Console.ReadLine());
         return favoriteNumber;
     }
