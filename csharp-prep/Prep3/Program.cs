@@ -10,7 +10,7 @@ class Program
 
         int guess = 0;
         do {
-            Console.WriteLine("What is your guess?");
+            Console.Write("What is your guess? ");
             guess = int.Parse(Console.ReadLine());
 
             if (guess < magicNumber)
@@ -36,16 +36,22 @@ class Program
                     Console.WriteLine($"It took you {guessesMade} guesses.");
                 }
 
-                Console.WriteLine("Do you want to play again? (y/n)");
+                Console.WriteLine("Do you want to play again? (yes/no)");
                 string playAgain = Console.ReadLine();
+
+                while (playAgain != "yes" && playAgain != "no")
+                {
+                    Console.WriteLine("Please enter yes or no.");
+                    playAgain = Console.ReadLine();
+                }
                 
-                if (playAgain == "y")
+                if (playAgain == "yes")
                 {
                     magicNumber = random.Next(1, 101);
                     guessesMade = 0;
                     guess = 0;
                 }
-                else
+                else if (playAgain == "no")
                 {
                     Console.WriteLine("Thanks for playing!");
                 }
