@@ -12,7 +12,7 @@ class Program
 
         do
         {
-            Console.WriteLine("Enter a number:");
+            Console.Write("Enter a number: ");
             number = int.Parse(Console.ReadLine());
             if (number != 0)
             {
@@ -44,7 +44,11 @@ class Program
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {largestNumber}");
         Console.WriteLine($"The smallest positive number is: {smallestPositiveNumber}");
-        Console.WriteLine($"The sorted list is: [{string.Join(", ", numbers)}]");
+        Console.WriteLine($"The sorted list is:");
+        foreach (int item in numbers)
+        {
+            Console.WriteLine(item);
+        }
     }
 
 }
