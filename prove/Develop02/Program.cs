@@ -3,7 +3,7 @@ using System.Text.Json;
 
 class Program
 {
-    // To exceed the requirements for this assignment, I added a feature to load and save to a JSON file. I also added error messages in case the user inputs where not defined within the scope of the program.
+    // To exceed the requirements for this assignment, I added a feature to load and save to a JSON file. I also added error messages in case the user inputs were not defined within the scope of the program.
     static void Main(string[] args)
     {
         Journal journal = new Journal();
