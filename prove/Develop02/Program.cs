@@ -33,10 +33,12 @@ class Program
                     continue;
                 }
                 DateTime date = DateTime.Now;
-                Entry entry = new Entry();
-                entry._date = date;
-                entry._promptText = promptText;
-                entry._entryText = entryText;
+                Entry entry = new Entry
+                {
+                    _date = date,
+                    _promptText = promptText,
+                    _entryText = entryText
+                };
                 journal.AddEntry(entry);
             }
             else if (choice == "2")
@@ -45,9 +47,11 @@ class Program
             }
             else if (choice == "3")
             {
+                // Added a feature to load from a text or JSON file based on the user choice
                 Console.WriteLine("What file format would you like to use?");
                 Console.WriteLine("1. JSON");
                 Console.WriteLine("2. Text (.txt)");
+
                 string fileFormat = Console.ReadLine();
                 Console.WriteLine("What is the file name?");
                 string fileName = Console.ReadLine();
@@ -67,15 +71,16 @@ class Program
             }
             else if (choice == "4")
             {
+                // Added a feature to save to a text or JSON file based on the user choice
                 Console.WriteLine("What file format would you like to use?");
                 Console.WriteLine("1. JSON");
                 Console.WriteLine("2. Text (.txt)");
                 string fileFormat = Console.ReadLine();
+
                 Console.WriteLine("What is the file name?");
                 string fileName = Console.ReadLine();
                 if (fileFormat == "1")
                 {
-                    string json = JsonSerializer.Serialize(journal);
                     journal.SaveToJSON(fileName);
                 }
                 else if (fileFormat == "2")
