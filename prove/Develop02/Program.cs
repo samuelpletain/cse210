@@ -25,7 +25,13 @@ class Program
             {
                 string promptText = promptGenerator.GetRandomPrompt();
                 Console.WriteLine($"{promptText}");
+                Console.Write("> ");
                 string entryText = Console.ReadLine();
+                if (entryText == "")
+                {
+                    Console.WriteLine("Invalid entry. An entry content cannot be blank.");
+                    continue;
+                }
                 DateTime date = DateTime.Now;
                 Entry entry = new Entry();
                 entry._date = date;
@@ -41,20 +47,15 @@ class Program
             {
                 Console.WriteLine("What file format would you like to use?");
                 Console.WriteLine("1. JSON");
-                Console.WriteLine("2. CSV");
-                Console.WriteLine("3. Text (.txt)");
+                Console.WriteLine("2. Text (.txt)");
                 string fileFormat = Console.ReadLine();
                 Console.WriteLine("What is the file name?");
                 string fileName = Console.ReadLine();
                 if (fileFormat == "1")
-                {
+                {   
                     journal.LoadFromJSON(fileName);
                 }
                 else if (fileFormat == "2")
-                {
-                    break;
-                }
-                else if (fileFormat == "3")
                 {
                     journal.LoadFromFile(fileName);
                 }
@@ -68,8 +69,7 @@ class Program
             {
                 Console.WriteLine("What file format would you like to use?");
                 Console.WriteLine("1. JSON");
-                Console.WriteLine("2. CSV");
-                Console.WriteLine("3. Text (.txt)");
+                Console.WriteLine("2. Text (.txt)");
                 string fileFormat = Console.ReadLine();
                 Console.WriteLine("What is the file name?");
                 string fileName = Console.ReadLine();
@@ -79,10 +79,6 @@ class Program
                     journal.SaveToJSON(fileName);
                 }
                 else if (fileFormat == "2")
-                {
-                    break;
-                }
-                else if (fileFormat == "3")
                 {
                     journal.SaveToFile(fileName);
                 }

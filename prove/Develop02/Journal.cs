@@ -11,6 +11,11 @@ public class Journal
 
   public void DisplayAll()
   {
+    if (_entries.Count == 0)
+    {
+      Console.WriteLine("No entries to display.");
+      return;
+    }
     foreach (Entry entry in _entries)
     {
       entry.Display();
