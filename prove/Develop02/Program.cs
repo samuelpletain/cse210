@@ -47,49 +47,39 @@ class Program
             }
             else if (choice == "3")
             {
-                // Added a feature to load from a text or JSON file based on the user choice
-                Console.WriteLine("What file format would you like to use?");
-                Console.WriteLine("1. JSON");
-                Console.WriteLine("2. Text (.txt)");
-
-                string fileFormat = Console.ReadLine();
+                // Added a feature to load to a text or JSON file or display an error message if the extension is not supported
                 Console.WriteLine("What is the file name?");
                 string fileName = Console.ReadLine();
-                if (fileFormat == "1")
+                if (fileName.EndsWith(".txt"))
                 {   
-                    journal.LoadFromJSON(fileName);
-                }
-                else if (fileFormat == "2")
-                {
                     journal.LoadFromFile(fileName);
+                }
+                else if (fileName.EndsWith(".json"))
+                {
+                    journal.LoadFromJSON(fileName);
                 }
                 else
                 {
-                    Console.WriteLine("Invalid choice.");
+                    Console.WriteLine("This file extension is not supported.");
                     continue;
                 }
             }
             else if (choice == "4")
             {
-                // Added a feature to save to a text or JSON file based on the user choice
-                Console.WriteLine("What file format would you like to use?");
-                Console.WriteLine("1. JSON");
-                Console.WriteLine("2. Text (.txt)");
-                string fileFormat = Console.ReadLine();
-
+                // Added a feature to save to a text or JSON file or display an error message if the extension is not supported
                 Console.WriteLine("What is the file name?");
                 string fileName = Console.ReadLine();
-                if (fileFormat == "1")
+                if (fileName.EndsWith(".txt"))
+                {   
+                    journal.SaveToFile(fileName);
+                }
+                else if (fileName.EndsWith(".json"))
                 {
                     journal.SaveToJSON(fileName);
                 }
-                else if (fileFormat == "2")
-                {
-                    journal.SaveToFile(fileName);
-                }
                 else
                 {
-                    Console.WriteLine("Invalid choice.");
+                    Console.WriteLine("This file extension is not supported.");
                     continue;
                 }
             }

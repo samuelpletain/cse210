@@ -9,7 +9,7 @@ public class Entry
   public void Display()
   {
     string formattedDate = _date.ToShortDateString();
-    Console.WriteLine($"Date: {formattedDate} - Prompt : {_promptText}");
+    Console.WriteLine($"Date: {formattedDate} - Prompt: {_promptText}");
     Console.WriteLine($"{_entryText}");
   }
 }
