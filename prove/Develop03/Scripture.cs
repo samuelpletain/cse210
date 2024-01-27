@@ -55,4 +55,9 @@ public class Scripture
     }
     return true;
   }
+
+  public int getScriptureLength()
+  {
+    return _words.Count;
+  }
 }
