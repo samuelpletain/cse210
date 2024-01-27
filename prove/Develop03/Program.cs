@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    /** To exceed the requirements for this assignment, I added a level feature. A menu is displayed before displaying the scripture and the user can pick 4 difficulty levels. The levels behave as follow:
+    /** To exceed the requirements for this assignment, I added a level feature. A menu is displayed before displaying the scripture and the user can pick 4 difficulty levels. The levels behave as follows:
         - Easy: one word is hidden at a time
         - Medium: three words are hidden at a time
         - Hard: Five words are hidden at a time
