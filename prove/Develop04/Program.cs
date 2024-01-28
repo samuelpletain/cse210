@@ -4,13 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
+        bool error = false;
+
         while(true)
         {
+            Console.Clear();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Start breathing activity");
             Console.WriteLine("  2. Start reflecting activity");
             Console.WriteLine("  3. Start listing activity");
             Console.WriteLine("  4. Quit");
+            if (error)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid input. Please try again.");
+                Console.ResetColor();
+                error = false;
+            }
             string input = Console.ReadLine();
             if (input == "1")
             {
@@ -33,9 +43,7 @@ class Program
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please try again.");
-                Console.ResetColor();
+                error = true;
             }
         }
     }
