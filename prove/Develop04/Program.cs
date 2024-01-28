@@ -21,6 +21,7 @@ class Program
                 Console.ResetColor();
                 error = false;
             }
+            Console.Write("Select a choice from the menu: ");
             string input = Console.ReadLine();
             if (input == "1")
             {
