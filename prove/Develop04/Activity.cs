@@ -27,11 +27,15 @@ public class Activity
   {
     Console.WriteLine($"Welcome to the {_name} Activity.");
     Console.WriteLine();
+
     Console.WriteLine(_description);
     Console.WriteLine();
+
     Console.Write("How long, in seconds, would you like for you session to last? ");
     _duration = int.Parse(Console.ReadLine());
+
     Console.Clear();
+    
     Console.WriteLine("Get ready...");
     ShowSpinner(5);
   }
@@ -40,6 +44,7 @@ public class Activity
   {
     Console.WriteLine($"Well done!!");
     ShowSpinner(5);
+
     Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity.");
     ShowSpinner(5);
   }
@@ -50,10 +55,13 @@ public class Activity
     {
       Console.Write("\b\\");
       Thread.Sleep(250);
+
       Console.Write("\b|");
       Thread.Sleep(250);
+
       Console.Write("\b/");
       Thread.Sleep(250);
+
       Console.Write("\b-");
       Thread.Sleep(250);
     }
