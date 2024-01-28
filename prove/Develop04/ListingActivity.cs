@@ -21,21 +21,14 @@ public class ListingActivity : Activity
 
     Console.WriteLine("List as many responses as you can to the following prompt:");
     GetRandomPrompt();
+
     Console.Write("You may begin in: ");
     ShowCountDown(5);
 
-    DateTime startTime = DateTime.Now;
-    DateTime endTime = startTime.AddSeconds(GetDuration());
+    List<string> responses = GetListFromUser();
+    
+    _count = responses.Count;
 
-    while (DateTime.Now < endTime)
-    {
-      Console.Write("> ");
-      string input = Console.ReadLine();
-      if (input != "")
-      {
-        _count++;
-      }
-    }
     if (_count == 0)
     {
       Console.WriteLine("You didn't list anything!");
@@ -48,8 +41,10 @@ public class ListingActivity : Activity
     {
       Console.WriteLine($"You listed {_count} items!");
     }
+
+    Console.WriteLine();
+
     _count = 0;
-    Console.WriteLine("");
 
     DisplayEndingMessage();
   }
@@ -62,6 +57,22 @@ public class ListingActivity : Activity
 
   public List<string> GetListFromUser()
   {
-    return new List<string>();
+    List<string> responses = new List<string>();
+    
+    DateTime startTime = DateTime.Now;
+    DateTime endTime = startTime.AddSeconds(GetDuration());
+
+    while (DateTime.Now < endTime)
+    {
+      Console.Write("> ");
+      string input = Console.ReadLine();
+
+      if (input != "")
+      {
+        responses.Add(input);
+      }
+    }
+
+    return responses;
   }
 }
