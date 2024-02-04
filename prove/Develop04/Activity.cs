@@ -6,6 +6,9 @@ public class Activity
 
   public Activity()
   {
+    SetName("Activity");
+    SetDescription("This is a generic activity.");
+    _duration = 0;
   }
 
   public void SetName(string name)
@@ -74,7 +77,9 @@ public class Activity
     {
       Console.Write($"{i}");
       Thread.Sleep(1000);
-      Console.Write("\b");
+      for (int j = 0; j < i.ToString().Length; j++) {
+        Console.Write("\b \b");
+      }
     }
     Console.WriteLine(" ");
   }
