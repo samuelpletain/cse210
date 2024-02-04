@@ -1,16 +1,17 @@
 public class FiveSensesActivity : Activity 
 {
-  private List<string> _senses = new List<string>(){
-    "see",
-    "feel",
-    "hear",
-    "smell",
-    "taste"
-  };
+  private List<string> _senses;
 
   public FiveSensesActivity() {
     SetName("Five Senses");
     SetDescription("This activity will help you focus on your five senses to help you relax and clear your mind. This will help you become more present and aware of your surroundings.");
+    _senses = new List<string>(){
+      "see",
+      "feel",
+      "hear",
+      "smell",
+      "taste"
+    };
   }
 
   public void Run() {
