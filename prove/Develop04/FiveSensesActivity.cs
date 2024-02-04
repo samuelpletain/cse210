@@ -1,4 +1,5 @@
-public class FiveSensesActivity : Activity {
+public class FiveSensesActivity : Activity 
+{
   private List<string> _senses = new List<string>(){
     "see",
     "feel",
