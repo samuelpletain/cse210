@@ -2,6 +2,8 @@ using System;
 
 class Program
 {
+    /** To exceed expectations, I created an extra type of activity, FiveSensesActivity. This activity uses the duration differently than the others by dividing the time given by the number of senses in the senses list. I also added error handling for the main menu. */
+
     static void Main(string[] args)
     {
         bool error = false;
@@ -14,7 +16,8 @@ class Program
             Console.WriteLine("  1. Start breathing activity");
             Console.WriteLine("  2. Start reflecting activity");
             Console.WriteLine("  3. Start listing activity");
-            Console.WriteLine("  4. Quit");
+            Console.WriteLine("  4. Start five senses activity (requires at least 50 seconds)");
+            Console.WriteLine("  5. Quit");
 
             if (error)
             {
@@ -43,6 +46,11 @@ class Program
                 listingActivity.Run();
             }
             else if (input == "4")
+            {
+                FiveSensesActivity fiveSensesActivity = new FiveSensesActivity();
+                fiveSensesActivity.Run();
+            }
+            else if (input == "5")
             {
                 break;
             }
