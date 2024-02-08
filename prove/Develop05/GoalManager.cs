@@ -66,17 +66,17 @@ public class GoalManager
 
   public void ListGoalNames()
   {
-    foreach (Goal goal in _goals)
+    for(int i = 0; i < _goals.Count; i++)
     {
-      Console.WriteLine(goal.GetShortName());
+      Console.WriteLine($"  {i + 1}. {_goals[i].GetShortName()}");
     }
   }
 
   public void ListGoalDetails()
   {
-    foreach (Goal goal in _goals)
+    for (int i = 0; i < _goals.Count; i++)
     {
-      Console.WriteLine(goal.GetDetailsString());
+      Console.WriteLine($"{_goals[i].GetDetailsString()}");
     }
   }
 
@@ -180,17 +180,14 @@ public class GoalManager
     Console.WriteLine("Select a goal to record an event for:");
     ListGoalNames();
     string input = Console.ReadLine();
-    Goal goal = _goals.Find(g => g.GetShortName() == input);
-    if (goal != null)
-    {
-      _score += goal.RecordEvent();
-      displayPlayerInfo();
-    }
-    else
+    if (int.Parse(input) < 1 || int.Parse(input) > _goals.Count)
     {
       Console.ForegroundColor = ConsoleColor.Red;
       Console.WriteLine("Invalid goal");
       Console.ResetColor();
+      return;
     }
+    Goal goal = _goals[int.Parse(input) - 1];
+    _score += goal.RecordEvent();
   }
 }

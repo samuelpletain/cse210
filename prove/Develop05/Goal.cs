@@ -45,7 +45,7 @@ public abstract class Goal
 
   public abstract bool IsComplete();
 
-  public string GetDetailsString(){
+  public virtual string GetDetailsString(){
     string isComplete = IsComplete() ? "X" : " ";
     return $"[{isComplete}] {GetShortName()} ({GetDescription()})";
   }

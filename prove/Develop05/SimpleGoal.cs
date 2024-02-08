@@ -9,6 +9,12 @@ public class SimpleGoal : Goal
 
   public override int RecordEvent()
   {
+    if (_isComplete)
+    {
+      Console.WriteLine("You have already completed this goal.");
+      return 0;
+    }
+
     _isComplete = true;
     return GetPoints();
   }

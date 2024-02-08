@@ -22,6 +22,10 @@ public class CheckListGoal : Goal
     if (_amountCompleted == _target)
     {
       return GetPoints() + _bonus;
+    } else if (_amountCompleted > _target)
+    {
+      Console.WriteLine("You have already completed this goal.");
+      return 0;
     } else
     {
       return GetPoints();
@@ -38,7 +42,7 @@ public class CheckListGoal : Goal
     return $"CheckListGoal:{GetShortName()}~{GetDescription()}~{GetPoints()}~{_bonus}~{_target}~{_amountCompleted}";
   }
 
-  public new string GetDetailsString()
+  public override string GetDetailsString()
   {
     string detailsString = base.GetDetailsString();
     return $"{detailsString} -- Currently Completed: {_amountCompleted}/{_target}";
