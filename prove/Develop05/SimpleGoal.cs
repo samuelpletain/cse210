@@ -7,6 +7,11 @@ public class SimpleGoal : Goal
     _isComplete = false;
   }
 
+  public void setIsComplete(bool isComplete)
+  {
+    _isComplete = isComplete;
+  }
+
   public override int RecordEvent()
   {
     if (_isComplete)

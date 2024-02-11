@@ -2,11 +2,15 @@ public class GoalManager
 {
   private List<Goal> _goals;
   private int _score;
+  private int _level;
+  private int _maxExperience;
 
   public GoalManager()
   {
     _goals = new List<Goal>();
     _score = 0;
+    _level = 1;
+    _maxExperience = 100;
   }
 
   public void Start()
@@ -60,7 +64,8 @@ public class GoalManager
   public void displayPlayerInfo()
   {
     Console.WriteLine();
-    Console.WriteLine($"Score: {_score}");
+    Console.WriteLine($"Level: {_level}");
+    Console.WriteLine($"Score: {_score}/{_maxExperience}");
     Console.WriteLine();
   }
 
@@ -74,6 +79,11 @@ public class GoalManager
 
   public void ListGoalDetails()
   {
+    if (_goals.Count == 0)
+    {
+      Console.WriteLine("No goals to display");
+      return;
+    }
     for (int i = 0; i < _goals.Count; i++)
     {
       Console.WriteLine($"{_goals[i].GetDetailsString()}");
@@ -157,7 +167,9 @@ public class GoalManager
         if (parts[0] == "SimpleGoal")
         {
           string[] details = parts[1].Split('~');
-          _goals.Add(new SimpleGoal(details[0], details[1], int.Parse(details[2])));
+          SimpleGoal simpleGoal = new SimpleGoal(details[0], details[1], int.Parse(details[2]));
+          simpleGoal.setIsComplete(bool.Parse(details[3]));
+          _goals.Add(simpleGoal);
         }
         else if (parts[0] == "CheckListGoal")
         {
@@ -173,10 +185,16 @@ public class GoalManager
         }
       }
     }
+    checkLevelUp(isLoaded: true);
   }
 
   public void RecordEvent()
   {
+    if (_goals.Count == 0)
+    {
+      Console.WriteLine("No goals to display");
+      return;
+    }
     Console.WriteLine("Select a goal to record an event for:");
     ListGoalNames();
     string input = Console.ReadLine();
@@ -188,6 +206,36 @@ public class GoalManager
       return;
     }
     Goal goal = _goals[int.Parse(input) - 1];
-    _score += goal.RecordEvent();
+    int points = goal.RecordEvent();
+    if (points == 0)
+    {
+      return;
+    }
+    _score += points;
+    Console.WriteLine($"Congratulations! You have earned {points} points.");
+    Console.WriteLine($"You now have {_score} points.");
+    checkLevelUp();
+  }
+
+  public void checkLevelUp(bool isLoaded = false)
+  {
+    while (_score >= _maxExperience)
+    {
+      _level++;
+      _maxExperience = _maxExperience * 3;
+      if (!isLoaded)
+      {
+        showLevelUp();
+      }
+    }
+  }
+
+  public void showLevelUp()
+  {
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine();
+    Console.WriteLine("You have leveled up!");
+    Console.WriteLine($"You are now level {_level}.");
+    Console.ResetColor();
   }
 }
