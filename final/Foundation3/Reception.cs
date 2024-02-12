@@ -5,15 +5,11 @@ public class Reception : Event
   public Reception(string title, string description, string date, string time, Address address, string email) : base(title, description, date, time, address)
   {
     _email = email;
+    SetEventType("Reception");
   }
 
   public string GetFullDetails()
   {
-    return $"{GetStandardDetails()}\nReception\nRSVP at: {_email}";
-  }
-
-  public new string GetShortDescription()
-  {
-    return $"Reception - {base.GetShortDescription()}";
+    return $"{GetStandardDetails()}\n{GetEventType()}\nRSVP at: {_email}";
   }
 }

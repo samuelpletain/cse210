@@ -7,15 +7,11 @@ public class Lecture : Event
   {
     _speaker = speaker;
     _capacity = capacity;
+    SetEventType("Lecture");
   }
 
   public string GetFullDetails()
   {
-    return $"{GetStandardDetails()}\nLecture\nSpeaker: {_speaker}\nCapacity: {_capacity}";
-  }
-
-  public new string GetShortDescription()
-  {
-    return $"Lecture - {base.GetShortDescription()}";
+    return $"{GetStandardDetails()}\n{GetEventType()}\nSpeaker: {_speaker}\nCapacity: {_capacity}";
   }
 }

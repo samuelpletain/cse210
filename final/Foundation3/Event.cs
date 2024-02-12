@@ -5,6 +5,7 @@ public class Event
   private string _date;
   private string _time;
   private Address _address;
+  private string _eventType;
 
   public Event(string title, string description, string date, string time, Address address)
   {
@@ -13,6 +14,17 @@ public class Event
     _date = date;
     _time = time;
     _address = address;
+    _eventType = "Event";
+  }
+
+  public string GetEventType()
+  {
+    return _eventType;
+  }
+
+  public void SetEventType(string eventType)
+  {
+    _eventType = eventType;
   }
 
   public string GetStandardDetails()
@@ -22,6 +34,6 @@ public class Event
 
   public string GetShortDescription()
   {
-    return $"{_title} - {_date}";
+    return $"{_eventType} - {_title} - {_date}";
   }
 }

@@ -5,11 +5,12 @@ public class OutdoorGathering : Event
   public OutdoorGathering(string title, string description, string date, string time, Address address, string weather) : base(title, description, date, time, address)
   {
     _weather = weather;
+    SetEventType("Outdoor Gathering");
   }
 
   public string GetFullDetails()
   {
-    return $"{GetStandardDetails()}\nOutdoor Gathering\nThe weather will be {_weather}.";
+    return $"{GetStandardDetails()}\n{GetEventType()}\nThe weather will be {_weather}.";
   }
 
   public new string GetShortDescription()
