@@ -28,7 +28,7 @@ class Program
         foreach (Video video in videos)
         {
             Console.WriteLine("==================================");
-            video.GetMetadata();
+            video.DisplayMetadata();
             video.DisplayComments();
         }
     }
