@@ -25,7 +25,7 @@ public class Video
 
   public void DisplayMetadata()
   {
-    Console.WriteLine($"Title: {_title} - Author: {_author} - Length: {_length}");
+    Console.WriteLine($"Title: {_title} - Author: {_author} - Length: {_length} minutes");
     Console.WriteLine($"Number of Comments: {GetNumberOfComments()}");
     Console.WriteLine();
   }
