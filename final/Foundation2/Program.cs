@@ -27,25 +27,28 @@ class Program
         order2.AddProduct(product5);
         order2.AddProduct(product6);
 
-        Console.WriteLine("Order 1");
-        Console.WriteLine();
-        Console.WriteLine("Packing Label:");
-        Console.WriteLine(order1.GetPackingLabel());
-        Console.WriteLine("Shipping Label:");
-        Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine();
-        Console.WriteLine($"Total Cost: ${string.Format("{0:.00}", order1.GetTotalCost())}");
-        Console.WriteLine();
+        List<Order> orders = new List<Order>
+        {
+            order1,
+            order2
+        };
 
-        Console.WriteLine("==================================");
-
-        Console.WriteLine("Order 2");
-        Console.WriteLine();
-        Console.WriteLine("Packing Label:");
-        Console.WriteLine(order2.GetPackingLabel());
-        Console.WriteLine("Shipping Label:");
-        Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine();
-        Console.WriteLine($"Total Cost: ${string.Format("{0:.00}", order2.GetTotalCost())}");
+        for (int i = 0; i < orders.Count; i++)
+        {
+            Console.WriteLine($"Order {i + 1}");
+            Console.WriteLine();
+            Console.WriteLine("Packing Label:");
+            Console.WriteLine(orders[i].GetPackingLabel());
+            Console.WriteLine("Shipping Label:");
+            Console.WriteLine(orders[i].GetShippingLabel());
+            Console.WriteLine();
+            Console.WriteLine($"Total Cost: ${string.Format("{0:.00}", orders[i].GetTotalCost())}");
+            Console.WriteLine();
+            if (i != orders.Count - 1)
+            {
+                Console.WriteLine("==================================");
+                Console.WriteLine();
+            }
+        }
     }
 }
