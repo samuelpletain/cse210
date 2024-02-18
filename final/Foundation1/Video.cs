@@ -3,7 +3,7 @@ public class Video
   private string _title;
   private string _author;
   private int _length;
-  List<Comment> _comments;
+  private List<Comment> _comments;
 
   public Video(string title, string author, int length)
   {
