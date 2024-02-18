@@ -12,9 +12,4 @@ public class OutdoorGathering : Event
   {
     return $"{GetStandardDetails()}\n{GetEventType()}\nThe weather will be {_weather}.";
   }
-
-  public new string GetShortDescription()
-  {
-    return $"Outdoor Gathering - {base.GetShortDescription()}";
-  }
 }
