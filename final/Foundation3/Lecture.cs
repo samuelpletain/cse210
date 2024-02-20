@@ -10,7 +10,7 @@ public class Lecture : Event
     SetEventType("Lecture");
   }
 
-  public string GetFullDetails()
+  public override string GetFullDetails()
   {
     return $"{GetStandardDetails()}\n{GetEventType()}\nSpeaker: {_speaker}\nCapacity: {_capacity}";
   }

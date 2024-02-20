@@ -12,26 +12,25 @@ class Program
         Reception reception = new Reception("New Year's Eve Party", "A celebration of the new year", "2021-12-31", "20:00", address2, "newyears2022@gmail.com");
         OutdoorGathering outdoorGathering = new OutdoorGathering("Picnic in the Park", "A fun day in the sun", "2022-07-04", "12:00", address3, "sunny");
 
-        Console.WriteLine(lecture.GetStandardDetails());
-        Console.WriteLine();
-        Console.WriteLine(lecture.GetFullDetails());
-        Console.WriteLine();
-        Console.WriteLine(lecture.GetShortDescription());
-        Console.WriteLine();
-        Console.WriteLine("=====================================");
+        List<Event> events = new List<Event>
+        {
+            lecture,
+            reception,
+            outdoorGathering
+        };
 
-        Console.WriteLine(reception.GetStandardDetails());
-        Console.WriteLine();
-        Console.WriteLine(reception.GetFullDetails());
-        Console.WriteLine();
-        Console.WriteLine(reception.GetShortDescription());
-        Console.WriteLine();
-        Console.WriteLine("=====================================");
-
-        Console.WriteLine(outdoorGathering.GetStandardDetails());
-        Console.WriteLine();
-        Console.WriteLine(outdoorGathering.GetFullDetails());
-        Console.WriteLine();
-        Console.WriteLine(outdoorGathering.GetShortDescription());
+        foreach (Event e in events)
+        {
+            Console.WriteLine(e.GetStandardDetails());
+            Console.WriteLine();
+            Console.WriteLine(e.GetFullDetails());
+            Console.WriteLine();
+            Console.WriteLine(e.GetShortDescription());
+            if (e != events[events.Count - 1])
+            {
+            Console.WriteLine();
+            Console.WriteLine("=====================================");
+            }
+        }
     }
 }

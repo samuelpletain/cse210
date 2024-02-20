@@ -8,7 +8,7 @@ public class OutdoorGathering : Event
     SetEventType("Outdoor Gathering");
   }
 
-  public string GetFullDetails()
+  public override string GetFullDetails()
   {
     return $"{GetStandardDetails()}\n{GetEventType()}\nThe weather will be {_weather}.";
   }

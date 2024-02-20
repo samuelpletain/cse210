@@ -8,7 +8,7 @@ public class Reception : Event
     SetEventType("Reception");
   }
 
-  public string GetFullDetails()
+  public override string GetFullDetails()
   {
     return $"{GetStandardDetails()}\n{GetEventType()}\nRSVP at: {_email}";
   }
